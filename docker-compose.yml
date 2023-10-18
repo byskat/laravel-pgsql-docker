@@ -28,7 +28,7 @@ services:
     image: pgsql-docker
     restart: unless-stopped
     expose:
-     - "5432"
+      - "5432"
     ports:
       - "5433:5432"
     volumes: 
@@ -37,7 +37,7 @@ services:
     environment:
       - POSTGRES_USER=${DB_USERNAME}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_MULTIPLE_DATABASES=<DB 1>,<DB 2>
+      - POSTGRES_MULTIPLE_DATABASES=${DB_DATABASE}
     networks:
       - app-network
 
@@ -47,7 +47,7 @@ services:
     restart: unless-stopped
     tty: true
     ports: 
-        - 8100:80
+        - 80:80
     volumes: 
         - ./:/var/www
         - ./infra/nginx/conf:/etc/nginx/conf.d
