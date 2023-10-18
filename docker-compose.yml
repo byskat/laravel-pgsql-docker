@@ -8,6 +8,9 @@ services:
   app:
     container_name: app
     build:
+      args:
+          user: valarcons
+          uid: 1000
       context: ./infra/app
       dockerfile: Dockerfile
     image: php-laravel-8.2
